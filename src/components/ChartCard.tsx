@@ -1,5 +1,6 @@
 import React, { ComponentElement } from "react";
 import styled from "styled-components";
+import { DottedTitle } from "../styles/cards";
 
 const Card = styled.div`
   background-color: #fff;
@@ -10,14 +11,6 @@ const Card = styled.div`
   padding: 1rem 2rem;
   margin-top: -50px;
   box-shadow: 10px 10px #2a554b;
-  h2 {
-    font-weight: 500;
-    padding-bottom: 0.3rem;
-    border-bottom-style: dashed;
-    border-bottom-color: rgba(0, 0, 0, 0.3);
-    display: inline;
-    border-bottom-width: 2px;
-  }
   div {
     margin-top: 3rem;
   }
@@ -38,7 +31,7 @@ interface ChartCardProps {
 const ChartCard: React.FC<ChartCardProps> = ({ Content, title }) => {
   return (
     <Card>
-      <h2>{title}</h2>
+      <DottedTitle>{title}</DottedTitle>
       <div>{Content}</div>
     </Card>
   );

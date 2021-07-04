@@ -102,3 +102,15 @@ export interface RepoType {
   watchers: number;
   default_branch: string;
 }
+
+export interface LiteRepo {
+  stars: number;
+  size: number;
+  forks: number;
+  title: string;
+  description: string;
+  name: string;
+  url: string;
+}
+
+export type LiteRepoType = "stars" | "size" | "forks";

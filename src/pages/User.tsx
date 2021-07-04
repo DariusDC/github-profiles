@@ -8,6 +8,7 @@ import axios from "axios";
 import MostStarredChart from "../components/charts/MostStarredChart";
 import TopLanguagesChart from "../components/charts/TopLanguagesChart";
 import { UserType } from "./../types/userType";
+import Projects from "./../components/users/Projects";
 import {
   Avatar,
   CardsSection,
@@ -17,6 +18,7 @@ import {
   JoinDate,
   Tag,
 } from "../styles/userStyles";
+import { LiteRepo, RepoType } from "../types/repoType";
 
 interface RouteType {
   username: string;
@@ -24,7 +26,7 @@ interface RouteType {
 
 const User = ({ match }: RouteComponentProps): any => {
   const [userDetails, setUserDetails] = useState<UserType | null>(null);
-  const [userRepo, setUserRepo] = useState([]);
+  const [userRepo, setUserRepo] = useState<RepoType[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
@@ -94,6 +96,18 @@ const User = ({ match }: RouteComponentProps): any => {
               Content={<TopLanguagesChart repo={userRepo} />}
             />
           </ChartsSection>
+          <Projects
+            repo={userRepo.map((r) => {
+              return {
+                description: r.description,
+                title: r.name,
+                forks: r.forks_count,
+                size: r.size,
+                stars: r.stargazers_count,
+                url: r.html_url,
+              } as LiteRepo;
+            })}
+          />
         </Content>
       </>
     );
