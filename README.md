@@ -5,6 +5,8 @@ The users only needs to search for the github profile he wants to look for and t
 - One for the most starred repositories he has
 - One for the most used programming languages on it's projects.
 
+Then, he will see a list with the top 8 most starred repositories he has. Furthermore, he has 3 sorting options: by stars, forks and size.
+
 I have built this project in order to improve my front-end design skills. 
 Technologies used: 
 - react
